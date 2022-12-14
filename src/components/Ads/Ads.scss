@@ -1,0 +1,37 @@
+.ads {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+
+  &__link {
+    color: #737373;
+    text-decoration: none;
+    // transition: color .3s,
+    //   text-decoration .3s,
+    //   transform .3s;
+
+    &:hover {
+      color: #0c54a0;
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
+  }
+}
+.text__link{
+  color: #737373;
+  text-decoration: none;
+  transition: color .3s,
+    transform .3s;
+
+  &:hover {
+    color: #0c54a0;
+    // text-decoration: underline;
+    transform: scale(1.1);
+  }
+}
+@media(max-width: 480px) {
+  .ads {
+    justify-content: center;
+  }
+}

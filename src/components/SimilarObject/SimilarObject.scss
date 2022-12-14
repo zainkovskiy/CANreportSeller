@@ -1,0 +1,35 @@
+.similar{
+  display: flex;
+  gap: 0.5rem;
+  max-height: 400px;
+}
+.similar-cards{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 45%;
+  overflow: auto;
+}
+.similar-card{
+  display: flex;
+  &__img{
+    height: 150px;
+    width: 200px;
+    min-width: 200px;
+    object-fit: cover;
+  }
+  &__info{
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-left: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__title{
+    color: #737373;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,29 @@
+.footer {
+  padding: 1rem;
+  background-color: #0c54a0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__text {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    transition: text-decoration .3s,
+      transform .3s;
+
+    &:hover {
+      text-decoration: underline;
+      transform: scale(1.1);
+    }
+  }
+}
