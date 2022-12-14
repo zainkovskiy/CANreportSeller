@@ -4,6 +4,7 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { IconButton } from "@mui/material";
+import { yellow } from '@mui/material/colors';
 
 import './Statistic.scss';
 
@@ -43,21 +44,27 @@ export const Statistic = ({ statistic, price }) => {
   return (
     <div className="statistic">
       <div className="statistic__wrap">
-        <span className="statistic__title statistic__text_hover text">Просмотры</span>
-        <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.shows?.all || 0}</span>
+        <div>
+          <span className="statistic__title statistic__text_hover text">Просмотры</span>
+          <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.shows?.all || 0}</span>
+        </div>
         <span className="statistic__last text statistic__text statistic__text_hover">Вчера: <span>{statistic?.shows?.toDay || 0}</span></span>
       </div>
       {
         statistic?.calls?.all > 0 &&
         <div className="statistic__wrap">
-          <span className="statistic__title text statistic__text_hover">Подборки</span>
-          <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.calls?.all}</span>
+          <div>
+            <span className="statistic__title text statistic__text_hover">Подборки</span>
+            <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.calls?.all}</span>
+          </div>
           <span className="statistic__last text statistic__text statistic__text_hover">Вчера: <span>{statistic?.calls?.toDay}</span></span>
         </div>
       }
       <div className="statistic__wrap">
-        <span className="statistic__title text statistic__text_hover">Поиски</span>
-        <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.searches?.all || 0}</span>
+        <div>
+          <span className="statistic__title text statistic__text_hover">Поиски</span>
+          <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.searches?.all || 0}</span>
+        </div>
         <span className="statistic__last text statistic__text statistic__text_hover">Вчера: <span>{statistic?.searches?.toDay || 0}</span></span>
       </div>
       <div className="statistic__wrap statistic__price">
@@ -73,6 +80,7 @@ export const Statistic = ({ statistic, price }) => {
             <AccessTimeIcon
               data-price='show'
               fontSize="inherit"
+              sx={{ color: yellow[50] }}
             />
           </IconButton>
         </span>
@@ -83,6 +91,7 @@ export const Statistic = ({ statistic, price }) => {
           className="statistic__count text statistic__text statistic__text_hover">
           {getArrow('36px', price?.direction)}{price?.current || 0}&#8381;
         </span>
+
         {
           price?.history?.length > 0 &&
           <div data-price='show' className={`statistic__history ${showHistory ? 'visible' : ''}`}>

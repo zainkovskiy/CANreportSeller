@@ -1,9 +1,12 @@
 import React from "react";
-
+import Logo from '../../image/logo.svg';
 import './Header.scss';
 
-export function Header () {
-  return (<div className='header'>
-            <img className='header__logo' src="https://crm.centralnoe.ru/dealincom/assets/logo_can.jpg" alt="logo"/>
-          </div>)
+export function Header() {
+  return (
+    <div className='header'>
+      <div className="container">
+        <Logo />
+      </div>
+    </div>)
 }

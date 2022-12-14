@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
-import { Header } from 'components/Header';
 import { Linear } from 'components/Linear';
+import { Header } from 'components/Header';
+import { Realtor } from 'components/Realtor';
 import { Title } from 'components/Title';
+import { About } from 'components/About';
 import { Statistic } from 'components/Statistic';
 import { Photos } from 'components/Photos';
 import { Ads } from 'components/Ads';
@@ -43,6 +45,7 @@ export const App = () => {
       "reqReserved": "2021-12-23 00:00:00.000000",
       "reqUpdateTime": 1670942243,
       "reqPrice": "3650",
+      "reqStartPrice": "3650",
       "reqPhoto": "https://centromir-sc.ru/imagebase/58549000005/Resize/58549000005_8ee7997d-5362-4ff4-96fc-e7cac43b3689_r.jpg",
       "reqLogo": "https://crm.centralnoe.ru/dealincom/assets/img/centr-small.png"
     },
@@ -61,6 +64,7 @@ export const App = () => {
       "reqHouseNumber": "25",
       "nearMetro": "Площадь Ленина",
       "metroDistance": 3,
+      "reqStartPrice": "3650",
       "reqFlatTotalArea": "68.00",
       "reqFlatLivingArea": "45.00",
       "reqKitchenArea": "6.00",
@@ -109,6 +113,7 @@ export const App = () => {
       "reqRoomCount": "3",
       "lat": "55.033752",
       "lng": "82.922836",
+      "reqStartPrice": "3650",
       "reqTypeofRealty": "Квартира",
       "isNew": 0,
       "reqType": "1c",
@@ -142,8 +147,8 @@ export const App = () => {
   const getData = async () => {
     try {
       const res = await axios.post("https://hs-01.centralnoe.ru/Project-Selket-Main/Servers/SellerStats/Controller.php", {
-        // reqNumber: "58734000007",
-        reqNumber: reqNumber,
+        reqNumber: "58734000007",
+        // reqNumber: reqNumber,
         actios: 'get',
       })
       console.log(res.data);
@@ -170,21 +175,30 @@ export const App = () => {
                 <>
                   <div className="top">
                     <Header />
-                    <Title
+                    <About
                       type={data?.type}
                       address={data?.address}
                       price={data?.price}
-                    />
-                    <Statistic
+                      totalArea={data?.features?.totalArea}
                       statistic={data?.report}
-                      price={data?.price}
                     />
-                    {
-                      data?.photo?.length > 0 &&
+                  </div>
+                  <div className="main container">
+                    {/* <Title
+                        type={data?.type}
+                        address={data?.address}
+                        price={data?.price}
+                      /> */}
+                    <Realtor
+                      name={data?.name}
+                      rieltorNumber={data?.rieltorNumber}
+                    />
+                    <div style={{display: 'flex'}}>
                       <Photos
                         photos={data?.photo || []}
                       />
-                    }
+                      <div style={{width: '100%', flexGrow: 1}}>сюда можно поместить либо еще инфу о объекте или перенести рекламу</div>
+                    </div>
                     <Ads
                       ads={data?.promotion || []}
                     />
@@ -193,10 +207,10 @@ export const App = () => {
                       center={["55.03375244140625", "82.92283630371094"]}
                     />
                   </div>
-                  <Footer
+                  {/* <Footer
                     name={data?.name}
                     rieltorNumber={data?.rieltorNumber}
-                  />
+                  /> */}
                 </>
             }
           </>

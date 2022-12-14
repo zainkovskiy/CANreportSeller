@@ -3,6 +3,8 @@
 .image-gallery {
   border: 1px solid #ccc;
   border-radius: 5px 5px 0 0;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .image-gallery-left-nav .image-gallery-svg,

@@ -1,19 +1,15 @@
 .statistic {
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0;
-  flex-wrap: wrap;
   gap: 1rem;
 
   &__wrap {
     display: flex;
     flex-direction: column;
-    width: 23%;
-    align-items: center;
 
-    &:hover .statistic__text_hover {
-      color: #0c54a0;
-    }
+    // &:hover .statistic__text_hover {
+    //   color: #0c54a0;
+    // }
   }
 
   &__text_hover {
@@ -21,7 +17,7 @@
   }
 
   &__text {
-    color: #737373;
+    color: #fff;
     cursor: default;
     display: inline-flex;
     align-items: center;
@@ -29,13 +25,14 @@
   }
 
   &__count {
-    font-size: 36px;
+    font-size: 12px;
     font-weight: 700;
+    margin-left: 0.5rem;
   }
 
   &__last {
-    color: #737373;
-    font-size: 12px;
+    color: #fff;
+    font-size: 9px;
 
     & span {
       font-weight: 700;
@@ -48,6 +45,8 @@
 
   &__title {
     cursor: default;
+    color: #fff;
+    font-size: 12px;
   }
 
   &__history {

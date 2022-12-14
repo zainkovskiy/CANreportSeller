@@ -6,21 +6,27 @@ body {
 }
 
 #root {
-  max-width: 1170px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 0.5rem;
   box-sizing: border-box;
   min-height: 100vh;
   justify-content: space-between;
 }
-
-.top {
+.container{
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.main{
   display: flex;
-  gap: 1rem;
   flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.top {
+  background-color: #0c54a0;
 }
 
 .text {
