@@ -25,6 +25,12 @@
     gap: 1rem;
     &-left {
       flex-direction: column;
+      justify-content: space-between;
+      &_top{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
     &-right {
     justify-content: center;

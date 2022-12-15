@@ -45,7 +45,7 @@ export const Statistic = ({ statistic, price }) => {
     <div className="statistic">
       <div className="statistic__wrap">
         <div>
-          <span className="statistic__title statistic__text_hover text">Просмотры</span>
+          <span className="statistic__title statistic__text_hover text">Просмотры: </span>
           <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.shows?.all || 0}</span>
         </div>
         <span className="statistic__last text statistic__text statistic__text_hover">Вчера: <span>{statistic?.shows?.toDay || 0}</span></span>
@@ -54,7 +54,7 @@ export const Statistic = ({ statistic, price }) => {
         statistic?.calls?.all > 0 &&
         <div className="statistic__wrap">
           <div>
-            <span className="statistic__title text statistic__text_hover">Подборки</span>
+            <span className="statistic__title text statistic__text_hover">Подборки: </span>
             <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.calls?.all}</span>
           </div>
           <span className="statistic__last text statistic__text statistic__text_hover">Вчера: <span>{statistic?.calls?.toDay}</span></span>
@@ -62,7 +62,7 @@ export const Statistic = ({ statistic, price }) => {
       }
       <div className="statistic__wrap">
         <div>
-          <span className="statistic__title text statistic__text_hover">Поиски</span>
+          <span className="statistic__title text statistic__text_hover">Поиски: </span>
           <span className="statistic__count text statistic__text statistic__text_hover">{statistic?.searches?.all || 0}</span>
         </div>
         <span className="statistic__last text statistic__text statistic__text_hover">Вчера: <span>{statistic?.searches?.toDay || 0}</span></span>
@@ -103,12 +103,12 @@ export const Statistic = ({ statistic, price }) => {
               {
                 price?.history.map((history, idx) =>
                   <React.Fragment key={idx}>
-                    <span data-price='show' className="text statistic__text">{moment(history?.date).locale('ru').format('DD MMMM YYYY')}</span>
-                    <span data-price='show' className="text statistic__text">{history?.price}</span>
+                    <span data-price='show' className="text statistic__text statistic__text_grey">{moment(history?.date).locale('ru').format('DD MMMM YYYY')}</span>
+                    <span data-price='show' className="text statistic__text statistic__text_grey">{history?.price}</span>
                     <span
                       data-price='show'
                       style={{ gap: 0, display: 'inline-block', textAlign: 'right' }}
-                      className="text statistic__text">{getArrow('14px', history?.direction)}{history.diference || 0}&#8381;
+                      className="text statistic__text statistic__text_grey">{getArrow('14px', history?.direction)}{history.diference || 0}&#8381;
                     </span>
                   </React.Fragment>
                 )

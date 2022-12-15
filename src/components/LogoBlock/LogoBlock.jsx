@@ -1,10 +1,10 @@
 import React from "react";
 import Logo from '../../image/logo.svg';
-import './Header.scss';
+import './LogoBlock.scss';
 
-export function Header() {
+export const LogoBlock = () => {
   return (
-    <div className='header'>
+    <div className='logo'>
       <div className="container">
         <Logo />
       </div>

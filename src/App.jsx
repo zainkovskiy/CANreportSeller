@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 import { Linear } from 'components/Linear';
-import { Header } from 'components/Header';
+import { LogoBlock } from 'components/LogoBlock';
 import { Realtor } from 'components/Realtor';
 import { Title } from 'components/Title';
 import { About } from 'components/About';
 import { Statistic } from 'components/Statistic';
+import { Object } from 'components/Object';
 import { Photos } from 'components/Photos';
 import { Ads } from 'components/Ads';
 import { SimilarObject } from 'components/SimilarObject';
@@ -174,43 +175,39 @@ export const App = () => {
                 <img src="https://crm.centralnoe.ru/dealincom/assets/img/error.jpg" alt="error" /> :
                 <>
                   <div className="top">
-                    <Header />
-                    <About
-                      type={data?.type}
-                      address={data?.address}
-                      price={data?.price}
-                      totalArea={data?.features?.totalArea}
-                      statistic={data?.report}
-                    />
-                  </div>
-                  <div className="main container">
-                    {/* <Title
+                    <div className="header">
+                      <LogoBlock />
+                      <About
+                        type={data?.type}
+                        address={data?.address}
+                        price={data?.price}
+                        totalArea={data?.features?.totalArea}
+                        statistic={data?.report}
+                        countRoom={data?.features?.reqRoomCount}
+                      />
+                    </div>
+                    <div className="main container">
+                      {/* <Title
                         type={data?.type}
                         address={data?.address}
                         price={data?.price}
                       /> */}
-                    <Realtor
-                      name={data?.name}
-                      rieltorNumber={data?.rieltorNumber}
-                    />
-                    <div style={{display: 'flex'}}>
-                      <Photos
-                        photos={data?.photo || []}
+                      <Realtor
+                        name={data?.name}
+                        rieltorNumber={data?.rieltorNumber}
                       />
-                      <div style={{width: '100%', flexGrow: 1}}>сюда можно поместить либо еще инфу о объекте или перенести рекламу</div>
+                      <Object
+                        photos={data?.photo || []}
+                        ads={data?.promotion || []}
+                        features={data?.features}
+                      />
+                      <SimilarObject
+                        similar={similar}
+                        center={["55.03375244140625", "82.92283630371094"]}
+                      />
                     </div>
-                    <Ads
-                      ads={data?.promotion || []}
-                    />
-                    <SimilarObject
-                      similar={similar}
-                      center={["55.03375244140625", "82.92283630371094"]}
-                    />
                   </div>
-                  {/* <Footer
-                    name={data?.name}
-                    rieltorNumber={data?.rieltorNumber}
-                  /> */}
+                  <Footer />
                 </>
             }
           </>

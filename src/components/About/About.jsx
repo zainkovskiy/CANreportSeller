@@ -3,7 +3,7 @@ import './About.scss';
 import { Statistic } from 'components/Statistic';
 
 export const About = (props) => {
-  const { type, address, price, totalArea, statistic } = props;
+  const { type, address, price, totalArea, statistic, countRoom } = props;
 
   const formatNumer = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -12,11 +12,13 @@ export const About = (props) => {
   return (
     <div className="container about">
       <div className="about__wrap about__wrap-left">
-        <span className="text about__text-size about__text-white">Ваш объект:</span>
-        <span className="text about__text-size about__text-white" style={{ fontSize: 14, fontWeight: 600 }}>
-          {type}, {totalArea} м<sup>2</sup>
-        </span>
-        <span className="text about__text-size about__text-white">{address}</span>
+        <div className="about__wrap-left_top">
+          <span className="text about__text-white">Ваш объект :</span>
+          <span className="text about__text-white" style={{ fontSize: 14, fontWeight: 600 }}>
+            {countRoom}к, {type}, {totalArea} м<sup>2</sup>
+          </span>
+          <span className="text about__text-white">{address}</span>
+        </div>
         <Statistic
           statistic={statistic}
           price={price}

@@ -7,7 +7,9 @@ export const Realtor = ({ name, rieltorNumber }) => {
       <div className="realtor__wrap">
         <span className="text realtor__weight realtor__title">С заботой о Вас</span>
         <div className="realtor-card">
-          <img className="realtor-card__img" src="https://crm.centralnoe.ru/dealincom/assets/img/placeholder-user.png" alt="realtor" />
+          <img className="realtor-card__img" 
+          src="https://crm.centralnoe.ru/upload/resize_cache/main/205/phckvamomx03b70dtmg1dr8r9jsrt8pa/212_212_1/%D1%84%D0%BE%D1%82%D0%BE%20%D1%8F.png" 
+          alt="realtor" />
           <div className="realtor-card__wrap">
             <span className="text realtor-card__text realtor__weight">
               {name}
