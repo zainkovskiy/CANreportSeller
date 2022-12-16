@@ -1,11 +1,12 @@
-import React from 'react';
-
+import React from "react";
 import './Title.scss';
 
-export const Title = ({ type, address }) => {
-  return (
-    <div className='title'>
-      <span className='text title__text'>{type} {address}</span>
+export const Title = ({ title }) => {
+  return(
+    <div className="title">
+      <div className="container">
+        <span className="title__text text">{ title }</span>
+      </div>
     </div>
   )
 }

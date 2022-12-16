@@ -1,24 +1,22 @@
 import React from "react";
 import './SimilarObject.scss';
+import { Title } from 'components/Title';
 import { SimilarMap } from 'components/SimilarMap';
 import { SimilarCards } from 'components/SimilarCards';
 import { SimilarFilter } from 'components/SimilarFilter';
 
-export const SimilarObject = ({ center, similar }) => {
+export const SimilarObject = () => {
   return (
     <>
       <div>
-        <span className="subtitle">Похожие объекты</span>
-        <div className="similar">
+        <Title
+          title='Похожие объекты'
+        />
+        <div className="similar container">
           <SimilarFilter />
           <div className="similar__map">
-            <SimilarMap
-              similar={similar}
-              center={center}
-            />
-            <SimilarCards
-              similar={similar}
-            />
+            <SimilarMap/>
+            <SimilarCards/>
           </div>
         </div>
       </div>

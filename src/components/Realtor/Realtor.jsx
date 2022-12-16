@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "components/LayoutContext";
 import './Realtor.scss';
 
-export const Realtor = ({ name, rieltorNumber }) => {
+const userHolder = 'https://crm.centralnoe.ru/upload/resize_cache/main/205/phckvamomx03b70dtmg1dr8r9jsrt8pa/212_212_1/%D1%84%D0%BE%D1%82%D0%BE%20%D1%8F.png';
+
+export const Realtor = () => {
+  const { state } = useContext(Context);
   return (
-    <div className="realtor">
+    <div className="realtor container">
       <div className="realtor__wrap">
         <span className="text realtor__weight realtor__title">С заботой о Вас</span>
         <div className="realtor-card">
-          <img className="realtor-card__img" 
-          src="https://crm.centralnoe.ru/upload/resize_cache/main/205/phckvamomx03b70dtmg1dr8r9jsrt8pa/212_212_1/%D1%84%D0%BE%D1%82%D0%BE%20%D1%8F.png" 
-          alt="realtor" />
+          <img className="realtor-card__img"
+            src={userHolder || 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'}
+            alt="realtor" />
           <div className="realtor-card__wrap">
             <span className="text realtor-card__text realtor__weight">
-              {name}
+              {state?.name || 'Centralnoe'}
             </span>
-            <a className="text realtor-card__text realtor-card__link" href={`tel:${rieltorNumber}`}>
-              {rieltorNumber}
+            <a className="text realtor-card__text realtor-card__link" href={`tel:${state?.rieltorNumber || '+7 (383) 347-65-36'}`}>
+              {state?.rieltorNumber || '+7 (383) 347-65-36'}
             </a>
           </div>
         </div>

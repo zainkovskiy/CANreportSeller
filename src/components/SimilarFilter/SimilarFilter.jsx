@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { Context } from 'components/LayoutContext';
 
 export const SimilarFilter = () => {
+  const { sortSimilar } = useContext(Context);
   const [anchorEl, setAnchorEl] = useState(null);
   const [sortText, setSortText] = useState(null);
   const open = Boolean(anchorEl);
@@ -14,7 +16,8 @@ export const SimilarFilter = () => {
   const handleClose = () => {
     setAnchorEl(null);
     if (event.target.textContent.length > 0) {
-      setSortText(event.target.textContent)
+      setSortText(event.target.textContent);
+      sortSimilar(event.target.dataset.value );
     }
   };
   return (
@@ -48,8 +51,8 @@ export const SimilarFilter = () => {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}>По дате публикации</MenuItem>
-          <MenuItem onClick={handleClose}>По цене</MenuItem>
+          <MenuItem onClick={handleClose} data-value='reqReserved'>По дате публикации</MenuItem>
+          <MenuItem onClick={handleClose} data-value='reqPrice'>По цене</MenuItem>
         </Menu>
       </div>
     </div>
