@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from 'components/LayoutContext';
 
 import './Ads.scss';
 
-export const Ads = ({ ads }) => {
+export const Ads = () => {
+  const { state } = useContext(Context);
   return (
-    <div className="ads">
-      <p className="text" style={{margin: 0}}>Ваш объект размещен на:</p>
-      { ads?.length > 0 && 
-        ads.map((ad, idx) =>
-          <a
-            target='_blank'
-            className="text text__link"
-            href={ad.URL}
-            key={idx}
-          >
-            {ad.name}
-          </a>
-        )
-      }
+    <div className="container">
+      <div className="ads">
+        <p className="text" style={{ margin: 0, color: '#fff' }}>Ваш объект размещен на:</p>
+        {state?.promotion?.length > 0 &&
+          state.promotion.map((ad, idx) =>
+            <a
+              target='_blank'
+              className="text text__link"
+              href={ad.URL}
+              key={idx}
+            >
+              {ad.name}
+            </a>
+          )
+        }
+      </div>
     </div>
   )
 }

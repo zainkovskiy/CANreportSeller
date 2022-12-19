@@ -9,7 +9,7 @@ export const SimilarMap = () => {
   const mapRef = useRef(null);
   const init = () => {
     mapRef.current.events.add('boundschange', (event) => {
-      if (event.get('newBounds') === event.get('oldBounds')) {
+      if (event.get('newBounds') !== event.get('oldBounds')) {
           console.log(event.get('newBounds'));
       }
   });

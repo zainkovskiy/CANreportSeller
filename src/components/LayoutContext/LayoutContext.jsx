@@ -25,9 +25,10 @@ export const LayoutContext = ({ children }) => {
         console.log(res.data);
         setState(res.data);
         getSimilar().then((res) => {
-          if (res.status === 200 && res?.data) {
-            setSimilar(res.data)
-          }
+          setSimilar(res);
+          // if (res.status === 200 && res?.data) {
+          //   setSimilar(res.data)
+          // }
         })
       }
     }).catch((err) => {

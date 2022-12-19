@@ -20,6 +20,7 @@ export const App = () => {
           <div className="header">
             <LogoBlock />
             <About />
+            <Ads/>
           </div>
           <div className="main">
             <Realtor />
@@ -29,7 +30,7 @@ export const App = () => {
                 ads={data?.promotion || []}
                 features={data?.features}
               /> */}
-              <SimilarObject/>
+            <SimilarObject />
           </div>
         </div>
         <Footer />
